@@ -14,8 +14,8 @@ $events = new Event();
 
       $allevents[]=$rows;
   }
-  $returnJS=array('status'=>1,'message'=>"successfull",'data'=>$allevents);
+  //$returnJS=array('status'=>1,'message'=>"successfull",'data'=>$allevents);
 
-  echo json_encode($returnJS);
+  echo json_encode($allevents);
 
 ?>

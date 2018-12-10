@@ -189,7 +189,8 @@ VALUES ('$universityId','$this->program','$this->faculity','$this->language','$t
     }
 
     public function updateUniversity($universityId,$updateDate){
-        $query = $this->connection->query("");
+        $query = $this->connection->query("UPDATE `university` SET `name`='$this->name',`country`='$this->country',
+                                            `province`='$this->province',`city`='$this->city',`logo`='$this->logo',`description`='$this->description',`updatedDate`='$updateDate' WHERE id='$universityId'");
         return $query;
     }
 public function fetchCountries(){
