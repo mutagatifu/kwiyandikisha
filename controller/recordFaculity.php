@@ -12,16 +12,16 @@ $faculity = new Faculity();
 
 $name = $_POST['name'];
 $program = $_POST['program'];
-$fees = $_POST['fee'];
-$language = $_POST['language'];
+//$fees = $_POST['fee'];
+//$language = $_POST['language'];
 
-if (!empty($name) && !empty($program) && !empty($fees) && !empty($language)){
+if (!empty($name) && !empty($program)){
 
-
+    //&& !empty($fees) && !empty($language)
     $faculity->setName($name);
     $faculity->setProgram($program);
-    $faculity->setFees($fees);
-    $faculity->setLanguage($language);
+//    $faculity->setFees($fees);
+//    $faculity->setLanguage($language);
     $query = $faculity->recordFaculity();
     if($query){
         echo "success";

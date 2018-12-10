@@ -69,8 +69,8 @@ class Faculity extends DbConnection
         $this->language = $language;
     }
     public function recordFaculity(){
-        $query = $this->connection->query("INSERT INTO `faculity`(`name`, `program`, `fees`, `language`) 
-                                  VALUES ('$this->name','$this->program','$this->fees','$this->language')");
+        $query = $this->connection->query("INSERT INTO `faculity`(`name`, `program`) 
+                                  VALUES ('$this->name','$this->program')");
         return $query;
     }
     public function returnFaculityByProgramId($programId){

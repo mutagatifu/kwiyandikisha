@@ -15,6 +15,7 @@ $country = $_POST['country'];
 $province = $_POST['province'];
 $city = $_POST['city'];
 $description = $_POST['shortDescription'];
+$programs = $_POST['program'];
 $logo =$_FILES['profile']['name'];
 $logotmp = $_FILES['profile']['tmp_name'];
 
@@ -48,7 +49,22 @@ if (!empty($name) && !empty($country) && !empty($province) && !empty($city) && !
             else{
                 $query1 = $university->recordUniversity();
                 if ($query1) {
+                    $maxuni = $university->returnMaxUniversityId();
+                        if ($maxuni){
+                    $univer = $maxuni->fetch_object();
+                    $ids = $univer->id;
+
+                    for ($i = 0; $i < sizeof($programs); $i++) {
+                        $progg = $programs[$i];
+                        //echo $progg." ".$ids."<br/>";
+                        $query2 = $university->recordUniversityProgram($ids, $progg);
+                    }
                     echo "success";
+
+                }
+                else{
+                    echo "didn't bring maximum id";
+                }
                 } else {
                     echo "problem in query";
                 }

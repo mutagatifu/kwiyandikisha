@@ -14,7 +14,68 @@ class University extends DbConnection
     private $city;
     private $logo;
     private $description;
+    private $faculity;
+    private $language;
+    private $price;
+    private $program;
 
+    /**
+     * @return mixed
+     */
+    public function getProgram()
+    {
+        return $this->program;
+    }
+    /**
+     * @param mixed $program
+     */
+    public function setProgram($program)
+    {
+        $this->program = $program;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFaculity()
+    {
+        return $this->faculity;
+    }
+    /**
+     * @param mixed $faculity
+     */
+    public function setFaculity($faculity)
+    {
+        $this->faculity = $faculity;
+    }
+    /**
+     * @return mixed
+     */
+    public function getLanguage()
+    {
+        return $this->language;
+    }
+    /**
+     * @param mixed $language
+     */
+    public function setLanguage($language)
+    {
+        $this->language = $language;
+    }
+    /**
+     * @return mixed
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+    /**
+     * @param mixed $price
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+    }
     /**
      * @return mixed
      */
@@ -104,6 +165,20 @@ class University extends DbConnection
                                           VALUES ('$this->name','$this->country','$this->province','$this->city','$this->logo','$this->description')");
         return $query;
     }
+    public function returnMaxUniversityId(){
+        $query = $this->connection->query("select Max(id) as id from university");
+        return $query;
+    }
+    public function recordUniversityProgram($university,$program){
+        $query = $this->connection->query("INSERT INTO `universityprogram`(`university`, `program`) 
+                                                  VALUES ('$university','$program')");
+        return $query;
+    }
+    public function recordUniversityFaculity($universityId){
+        $query = $this->connection->query("INSERT INTO `universityfaculity`(`university`, `program`, `faculity`, `language`, `price`) 
+VALUES ('$universityId','$this->program','$this->faculity','$this->language','$this->price')");
+        return $query;
+    }
     public function verifyUniversity(){
         $query = $this->connection->query("select * from university where name='$this->name' and country='$this->country' and city='$this->city'");
         return $query;
@@ -117,7 +192,15 @@ class University extends DbConnection
         $query = $this->connection->query("");
         return $query;
     }
+public function fetchCountries(){
+        $query = $this->connection->query("select * from country");
+        return $query;
+}
 
+public function deleteUniversity($unId){
+    $query = $this->connection->query("update university set status=99 where id='$unId'");
+    return $query;
+}
 
 
 }

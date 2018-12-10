@@ -11,17 +11,17 @@ $program =new Program();
 
 $name = $_POST['name'];
 $duration = $_POST['duration'];
-$language = $_POST['language'];
-$university = $_POST['university'];
+//$language = $_POST['language'];
+//$university = $_POST['university'];
 $startingDate = $_POST['starting'];
 
-if (!empty($name) && !empty($duration) && !empty($language) && !empty($university) && !empty($startingDate)) {
+if (!empty($name) && !empty($duration) && !empty($startingDate)) {
 
 
     $program->setName($name);
     $program->setDuration($duration);
-    $program->setLanguage($language);
-    $program->setUniversity($university);
+//    $program->setLanguage($language);
+//    $program->setUniversity($university);
     $program->setStartingDate($startingDate);
     $query1 = $program->verifyProgram();
 
