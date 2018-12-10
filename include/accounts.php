@@ -86,6 +86,7 @@ VALUES ('$this->fullNames','$this->email','$this->password','$this->phoneNumber'
         return $query;
     }
     public function studentLogin(){
-        $query = $this->connection->query("");
+        $query = $this->connection->query("select * from users where email = '$this->email' and password = '$this->password'");
+        return $query;
     }
 }
