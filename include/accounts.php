@@ -36,7 +36,6 @@ class accounts extends DbConnection
     {
         return $this->email;
     }
-
     /**
      * @param mixed $email
      */
@@ -44,7 +43,6 @@ class accounts extends DbConnection
     {
         $this->email = $email;
     }
-
     /**
      * @return mixed
      */
@@ -52,7 +50,6 @@ class accounts extends DbConnection
     {
         return $this->phoneNumber;
     }
-
     /**
      * @param mixed $phoneNumber
      */
@@ -60,7 +57,6 @@ class accounts extends DbConnection
     {
         $this->phoneNumber = $phoneNumber;
     }
-
     /**
      * @return mixed
      */
@@ -68,7 +64,6 @@ class accounts extends DbConnection
     {
         return $this->password;
     }
-
     /**
      * @param mixed $password
      */

@@ -839,5 +839,16 @@ VALUES ('$this->passPort','$this->firstName','$this->lastName','$this->nationali
                                           VALUES ('$this->passPort','$this->fromjob','$this->tojob','$this->companyjob','$this->occupationjob')");
         return $query;
     }
+    public function returnStudentsWithPayments(){
+        $query = $this->connection->query("select registration.id,registration.passPort,student.firstName,student.lastName,student.weChatNumber,student.profileImage,
+        registration.university,university.name as university,registration.program,programs.names as degree,registration.faculity,faculity.name as course,registration.payment from 
+        registration,student,university,programs,faculity where registration.passPort=student.passPort and registration.university=university.id and registration.program=programs.id 
+        and registration.faculity=faculity.id;");
+        return $query;
+    }
+    public function confirmPayment($regId){
+        $query = $this->connection->query("update registration set payment ='yes' where id='$regId'");
+        return $query;
+    }
 
 }
