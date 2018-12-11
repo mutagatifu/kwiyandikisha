@@ -1,0 +1,40 @@
+<html>
+<head>
+
+	</head>
+
+	<body>
+        
+		<input type='number' id='number1' name='number1' onchange="counterNumbers()" />
+	    <input type='number' id='number2' name='number2' onchange="counterNumbers()"/>
+	    <div>
+	    	<p id='number3'> </p>
+
+	    </div>
+
+	    <script>
+
+	    
+	    	function counterNumbers(){
+
+   
+
+	    	var a=document.getElementById('number1').value;
+	    	var b=document.getElementById('number2').value;
+
+	    	if(b==null || a==null){
+	    		b="";
+	    		a="";
+	    	}
+
+	    
+	    	var c= a*b;
+            document.getElementById('number3').innerHTML=c;
+
+        }
+
+	    </script>
+
+	</body>
+
+</html>

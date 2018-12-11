@@ -209,4 +209,16 @@ universityfaculity.faculity=faculity.id and universityfaculity.university='$uniI
     return $query;
 }
 
+
+    public function returnUniversity($unId){
+        $query=$this->connection->query("select * from university where id='$unId'");
+        return $query;
+    }
+
+   public function universityProgram($unId)
+   {
+       $query = $this->connection->query("select universityprogram.program,programs.names from universityprogram,programs where universityprogram.program=programs.id and university='$unId'");
+       return $query;
+   }
+
 }
