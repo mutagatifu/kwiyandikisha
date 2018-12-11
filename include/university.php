@@ -203,14 +203,10 @@ public function deleteUniversity($unId){
     return $query;
 }
 public function returnProgramByUniversity($uniId){
-    $query = $this->connection->query("select universityfaculity.university,universityfaculity.program,programs.names,programs.startingDate,programs.duration 
-                                from universityfaculity,programs where universityfaculity.program=programs.id and universityfaculity.university='$uniId'");
+    $query = $this->connection->query("select universityfaculity.id,universityfaculity.university,universityfaculity.program,programs.names as program,programs.startingDate,programs.duration,
+universityfaculity.faculity,faculity.name as faculity,universityfaculity.language,universityfaculity.price from universityfaculity,programs,faculity where universityfaculity.program=programs.id and 
+universityfaculity.faculity=faculity.id and universityfaculity.university='$uniId'");
     return $query;
 }
-public function returnFaculityByPrograms($proId)
-{
-    $query = $this->connection->query("select universityfaculity.faculity,faculity.name,universityfaculity.program,universityfaculity.language,universityfaculity.price 
-          from universityfaculity,faculity where universityfaculity.faculity=faculity.id and universityfaculity.program='$proId'");
-    return $query;
-}
+
 }
