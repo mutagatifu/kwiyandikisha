@@ -30,8 +30,8 @@ $program['university']=$univers;
 $program['faculity']=$progra;
 $byose[]=$program;
 
-$returnJs=array('status'=>1,'message'=>"success",'data'=>$byose);
+//$returnJs=array('status'=>1,'message'=>"success",'data'=>$byose);
 
-echo json_encode($returnJs);
+echo json_encode($byose);
 
 ?>

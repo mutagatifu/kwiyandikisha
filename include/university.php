@@ -19,6 +19,44 @@ class University extends DbConnection
     private $price;
     private $program;
 
+
+    private $programId;
+    private $universityId;
+
+    /**
+     * @return mixed
+     */
+    public function getProgramId()
+    {
+        return $this->programId;
+    }
+
+    /**
+     * @param mixed $programId
+     */
+    public function setProgramId($programId)
+    {
+        $this->programId = $programId;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUniversityId()
+    {
+        return $this->universityId;
+    }
+
+    /**
+     * @param mixed $universityId
+     */
+    public function setUniversityId($universityId)
+    {
+        $this->universityId = $universityId;
+    }
+
+
+
     /**
      * @return mixed
      */
@@ -226,6 +264,14 @@ from universityfaculity,faculity where universityfaculity.faculity=faculity.id a
        $query = $this->connection->query("select universityprogram.program,programs.names from universityprogram,programs where universityprogram.program=programs.id and university='$unId'");
        return $query;
    }
+    /*return faculity by university and programs*/
+    public function returnFaculityByUniversityAndProgram(){
+        $query = $this->connection->query("select universityfaculity.id,universityfaculity.university,universityfaculity.faculity,universityfaculity.language,universityfaculity.price,faculity.name,faculity.program from  universityfaculity,faculity
+where universityfaculity.faculity=faculity.id and universityfaculity.university='$this->universityId' and faculity.program='$this->programId'");
+        return $query;
+    }
+/*select universityfaculity.id,universityfaculity.university,universityfaculity.faculity,universityfaculity.language,universityfaculity.price,faculity.name,faculity.program from  universityfaculity,faculity
+where universityfaculity.faculity=faculity.id and universityfaculity.university=18 and faculity.program=3;*/
 
    public function updateFaculityOnUniversity($faculityId){
 

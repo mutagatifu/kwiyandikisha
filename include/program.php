@@ -99,8 +99,9 @@ public function recordProgram(){
         return $query;
     }
 public function returnProgramByUniversity($universityID){
-        $query = $this->connection->query("select universityprogram.program,programs.names,programs.duration,programs.startingDate
-            from universityprogram,programs where universityprogram.program=programs.id and universityprogram.university = '$universityID'");
+        $query = $this->connection->query("select universityfaculity.id,universityfaculity.university,universityfaculity.faculity,universityfaculity.language,
+universityfaculity.price,faculity.name,faculity.program,programs.names from universityfaculity,faculity,programs 
+where universityfaculity.faculity=faculity.id and faculity.program=programs.id and universityfaculity.university='$universityID' group by faculity.program;");
         return $query;
 }
 public function updateProgram($programId,$updateDate){
