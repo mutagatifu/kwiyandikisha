@@ -13,6 +13,6 @@ $countries = array();
 foreach ($query as $row){
     $countries[]=$row;
 }
-$returnJS = array('status'=>1,'message'=>"successfull",'data'=>$countries);
-echo json_encode($returnJS);
+//$returnJS = array('status'=>1,'message'=>"successfull",'data'=>$countries);
+echo json_encode($countries);
 ?>

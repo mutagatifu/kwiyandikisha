@@ -8,28 +8,28 @@
 include '../include/university.php';
 
 $university = new University();
-$universityId = $_POST['university'];
-$program = $_POST['program'];
-$faculity = $_POST['faculity'];
+$faculityId = $_POST['faculitId'];
 $language = $_POST['language'];
 $price = $_POST['price'];
 
-if (!empty($universityId) && !empty($program) && !empty($faculity) && !empty($language) && !empty($price)){
+if (!empty($faculityId) && !empty($language) && !empty($price)){
 
-
-    $university->setFaculity($faculity);
-    $university ->setProgram($program);
     $university->setLanguage($language);
     $university->setPrice($price);
 
-    $query = $university->recordUniversityFaculity($universityId);
+    $query = $university->updateFaculityOnUniversity($faculityId);
     if($query){
-        echo "success";
+    $returnJS=array('status'=>$query,'message'=>"success",'data'=>1);
+        echo json_encode($returnJS);
+            //"success".$query;
     }
     else{
-        echo "failed";
+        $returnJS=array('status'=>$query,'message'=>"failed",'data'=>0);
+        echo json_encode($returnJS);
+
     }
 }
-
-
+else{
+    echo "no field would be left empty";
+}
 ?>

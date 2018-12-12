@@ -209,6 +209,12 @@ universityfaculity.faculity=faculity.id and universityfaculity.university='$uniI
     return $query;
 }
 
+    public function returnFaculityByUniversity($uniId){
+        $query = $this->connection->query("select universityfaculity.id,universityfaculity.university,universityfaculity.faculity,faculity.name,universityfaculity.language,universityfaculity.price 
+from universityfaculity,faculity where universityfaculity.faculity=faculity.id and universityfaculity.university='$uniId'");
+        return $query;
+    }
+
 
     public function returnUniversity($unId){
         $query=$this->connection->query("select * from university where id='$unId'");
@@ -219,6 +225,12 @@ universityfaculity.faculity=faculity.id and universityfaculity.university='$uniI
    {
        $query = $this->connection->query("select universityprogram.program,programs.names from universityprogram,programs where universityprogram.program=programs.id and university='$unId'");
        return $query;
+   }
+
+   public function updateFaculityOnUniversity($faculityId){
+
+        $query = $this->connection->query("UPDATE `universityfaculity` SET `language`='$this->language',`price`='$this->price' where id='$faculityId'");
+        return $query;
    }
 
 }
