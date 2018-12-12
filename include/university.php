@@ -169,16 +169,16 @@ class University extends DbConnection
         $query = $this->connection->query("select Max(id) as id from university");
         return $query;
     }
-    public function recordUniversityProgram($university,$program){
-        $query = $this->connection->query("INSERT INTO `universityprogram`(`university`, `program`) 
-                                                  VALUES ('$university','$program')");
+    public function recordUniversityfaculity($university,$faculity){
+        $query = $this->connection->query("INSERT INTO `universityfaculity`(`university`, `faculity`) 
+                                                  VALUES ('$university','$faculity')");
         return $query;
     }
-    public function recordUniversityFaculity($universityId){
-        $query = $this->connection->query("INSERT INTO `universityfaculity`(`university`, `program`, `faculity`, `language`, `price`) 
-VALUES ('$universityId','$this->program','$this->faculity','$this->language','$this->price')");
-        return $query;
-    }
+//    public function recordUniversityFaculity($universityId){
+//        $query = $this->connection->query("INSERT INTO `universityfaculity`(`university`, `program`, `faculity`, `language`, `price`)
+//VALUES ('$universityId','$this->program','$this->faculity','$this->language','$this->price')");
+//        return $query;
+//    }
     public function verifyUniversity(){
         $query = $this->connection->query("select * from university where name='$this->name' and country='$this->country' and city='$this->city'");
         return $query;

@@ -15,7 +15,7 @@ $country = $_POST['country'];
 $province = $_POST['province'];
 $city = $_POST['city'];
 $description = $_POST['shortDescription'];
-$programs = $_POST['program'];
+$faculity = $_POST['faculity'];
 $logo =$_FILES['profile']['name'];
 $logotmp = $_FILES['profile']['tmp_name'];
 
@@ -54,10 +54,10 @@ if (!empty($name) && !empty($country) && !empty($province) && !empty($city) && !
                     $univer = $maxuni->fetch_object();
                     $ids = $univer->id;
 
-                    for ($i = 0; $i < sizeof($programs); $i++) {
-                        $progg = $programs[$i];
-                        //echo $progg." ".$ids."<br/>";
-                        $query2 = $university->recordUniversityProgram($ids, $progg);
+                    for ($i = 0; $i < sizeof($faculity); $i++) {
+                        $facul = $faculity[$i];
+                        //echo $facul." ".$ids."<br/>";
+                        $query2 = $university->recordUniversityfaculity($ids, $facul);
                     }
                     echo "success";
 

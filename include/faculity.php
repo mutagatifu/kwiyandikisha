@@ -88,6 +88,7 @@ class Faculity extends DbConnection
     }
     public function returnFaculities(){
         $query = $this->connection->query("select * from faculity where status !=99");
+        return $query;
     }
 
 }
