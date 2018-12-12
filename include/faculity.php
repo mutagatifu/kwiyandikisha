@@ -86,5 +86,8 @@ class Faculity extends DbConnection
         $query = $this->connection->query("update faculity set status=99 where id='$faculityId'");
         return $query;
     }
+    public function returnFaculities(){
+        $query = $this->connection->query("select * from faculity where status !=99");
+    }
 
 }
