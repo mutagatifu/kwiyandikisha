@@ -24,8 +24,8 @@ if (!empty($faculityId) && !empty($language) && !empty($price)){
             //"success".$query;
     }
     else{
-        $returnJS=array('status'=>$query,'message'=>"failed",'data'=>0);
-        echo json_encode($returnJS);
+        //$returnJS=array('status'=>$query,'message'=>"failed",'data'=>0);
+        echo "failed";
 
     }
 }
