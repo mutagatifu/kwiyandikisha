@@ -20,8 +20,6 @@ $query = $university->returnUniversity($unId);
 $row=$query->fetch_object();
 //$univers[]=$row->id;
 $univers[] = $row;
-
-
 $query1 = $university->universityProgram($unId);
 foreach ($query1 as $result){
     $progra[]=$result;

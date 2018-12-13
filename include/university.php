@@ -266,7 +266,8 @@ from universityfaculity,faculity where universityfaculity.faculity=faculity.id a
    }
     /*return faculity by university and programs*/
     public function returnFaculityByUniversityAndProgram(){
-        $query = $this->connection->query("select universityfaculity.id,universityfaculity.university,universityfaculity.faculity,universityfaculity.language,universityfaculity.price,faculity.name,faculity.program from  universityfaculity,faculity
+        $query = $this->connection->query("select universityfaculity.id,universityfaculity.university,universityfaculity.faculity,universityfaculity.language,
+universityfaculity.price,faculity.name,faculity.program from  universityfaculity,faculity
 where universityfaculity.faculity=faculity.id and universityfaculity.university='$this->universityId' and faculity.program='$this->programId'");
         return $query;
     }

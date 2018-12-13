@@ -24,7 +24,6 @@ if(!empty($fullname) && !empty($emails) && !empty($phoneNumber) && !empty($passw
     $check = $account->checkEmail();
     $count = mysqli_num_rows($check);
     if ($count > 0) {
-
  echo "this email have been already taken";
     }
     else{

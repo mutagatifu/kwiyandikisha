@@ -5,18 +5,8 @@
  * Date: 10/12/2018
  * Time: 14:12
  */
-
-
-/**
- * Created by PhpStorm.
- * User: Hview
- * Date: 10/12/2018
- * Time: 11:18
- */
 include '../include/accounts.php';
-
 $login = new accounts();
-
 $usermail = $_POST['email'];
 $pword = $_POST['password'];
 $login->setEmail($usermail);
@@ -28,13 +18,12 @@ if(!empty($usermail) && !empty($pword)){
     if ($count > 0){
         $user = $query->fetch_object();
       $_SESSION['user'] = $user->fullName;
+      $_SESSION['email'] = $user->email;
       //header('Location:');
-        echo $_SESSION['user'];
+        echo $_SESSION['user']." and ".$_SESSION['email'];
     }
     else{
         echo "username and password mismatch";
     }
 }
-
-
 ?>

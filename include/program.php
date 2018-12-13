@@ -59,31 +59,31 @@ private $startingDate;
     /**
      * @return mixed
      */
-//    public function getLanguage()
-//    {
-//        return $this->language;
-//    }
+    public function getLanguage()
+    {
+        return $this->language;
+    }
 //    /**
 //     * @param mixed $language
 //     */
-//    public function setLanguage($language)
-//    {
-//        $this->language = $language;
-//    }
+    public function setLanguage($language)
+    {
+        $this->language = $language;
+    }
 //    /**
 //     * @return mixed
 //     */
-//    public function getUniversity()
-//    {
-//        return $this->university;
-//    }
+    public function getUniversity()
+    {
+        return $this->university;
+    }
 //    /**
 //     * @param mixed $university
 //     */
-//    public function setUniversity($university)
-//    {
-//        $this->university = $university;
-//    }
+    public function setUniversity($university)
+    {
+        $this->university = $university;
+    }
 public function verifyProgram(){
         $query = $this->connection->query("select * from programs where names='$this->name' and startingDate='$this->startingDate' and duration='$this->duration'");
         return $query;
