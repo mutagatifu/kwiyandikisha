@@ -63,23 +63,23 @@ private $startingDate;
     {
         return $this->language;
     }
-//    /**
-//     * @param mixed $language
-//     */
+    /**
+     * @param mixed $language
+     */
     public function setLanguage($language)
     {
         $this->language = $language;
     }
-//    /**
-//     * @return mixed
-//     */
+    /**
+     * @return mixed
+     */
     public function getUniversity()
     {
         return $this->university;
     }
-//    /**
-//     * @param mixed $university
-//     */
+    /**
+     * @param mixed $university
+     */
     public function setUniversity($university)
     {
         $this->university = $university;
