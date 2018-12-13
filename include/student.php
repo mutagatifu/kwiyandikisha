@@ -843,11 +843,28 @@ VALUES ('$this->passPort','$this->firstName','$this->lastName','$this->nationali
         $query = $this->connection->query("select registration.id,registration.passPort,student.firstName,student.lastName,student.weChatNumber,student.profileImage,
         registration.university,university.name as university,registration.program,programs.names as degree,registration.faculity,faculity.name as course,registration.payment from 
         registration,student,university,programs,faculity where registration.passPort=student.passPort and registration.university=university.id and registration.program=programs.id 
-        and registration.faculity=faculity.id;");
+        and registration.faculity=faculity.id");
         return $query;
     }
     public function confirmPayment($regId){
         $query = $this->connection->query("update registration set payment ='yes' where id='$regId'");
+        return $query;
+    }
+    public function returnStudentBySearch($search){
+        $query = $this->connection->query("SELECT registration.id, registration.passPort, student.firstName, student.lastName, student.weChatNumber, student.profileImage, 
+registration.university, university.name AS university, registration.program, programs.names AS degree, registration.faculity, faculity.name AS course, registration.payment,registration.studentsFiles
+FROM registration, student, university, programs, faculity
+WHERE registration.passPort = student.passPort
+AND registration.university = university.id
+AND registration.program = programs.id
+AND registration.faculity = faculity.id
+AND (
+registration.createdDate LIKE  '%$search%'
+OR registration.passPort =  '$$search'
+OR student.firstName LIKE  '%$search%'
+OR student.lastName LIKE  '%$search%'
+OR university.name LIKE  '%$search%'
+)");
         return $query;
     }
 

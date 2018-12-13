@@ -26,7 +26,7 @@ $query1 = $university->returnFaculityByUniversity($unId);
 foreach ($query1 as $result){
     $progra[]=$result;
 }
-$program['university']=$univers;
+$program['university']=$row;
 $program['faculity']=$progra;
 $byose[]=$program;
 

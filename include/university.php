@@ -280,4 +280,5 @@ where universityfaculity.faculity=faculity.id and universityfaculity.university=
         return $query;
    }
 
+
 }

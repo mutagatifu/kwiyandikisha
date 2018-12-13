@@ -90,4 +90,9 @@ class Faculity extends DbConnection
         return $query;
     }
 
+    public function returnFaculityNotOnUniversity($unId){
+        $query = $this->connection->query("select * from faculity where id not in (select faculity from universityfaculity where university='$unId')");
+        return $query;
+    }
+
 }
