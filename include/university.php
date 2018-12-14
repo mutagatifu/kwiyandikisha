@@ -271,9 +271,6 @@ universityfaculity.price,faculity.name,faculity.program from  universityfaculity
 where universityfaculity.faculity=faculity.id and universityfaculity.university='$this->universityId' and faculity.program='$this->programId'");
         return $query;
     }
-/*select universityfaculity.id,universityfaculity.university,universityfaculity.faculity,universityfaculity.language,universityfaculity.price,faculity.name,faculity.program from  universityfaculity,faculity
-where universityfaculity.faculity=faculity.id and universityfaculity.university=18 and faculity.program=3;*/
-
    public function updateFaculityOnUniversity($faculityId){
 
         $query = $this->connection->query("UPDATE `universityfaculity` SET `language`='$this->language',`price`='$this->price' where id='$faculityId'");
@@ -285,5 +282,12 @@ faculityName,faculity.program,programs.names as degree,universityfaculity.langua
 universityfaculity.faculity=faculity.id and universityfaculity.university=university.id and university.status!=99 and faculity.program=programs.id and universityfaculity.faculity='$faculity'");
        return $query;
     }
+    public function returnRegistrationData($id){
+       $query = $this->connection->query("select universityfaculity.id,universityfaculity.university,university.name as universityName,university.province,universityfaculity.faculity,faculity.name as 
+faculityName,faculity.program,programs.names as degree,programs.startingDate,universityfaculity.language,universityfaculity.price from universityfaculity,university,faculity,programs where 
+universityfaculity.id='$id' and universityfaculity.university=university.id and universityfaculity.faculity=faculity.id and faculity.program=programs.id;");
+       return $query;
+    }
+
 
 }
