@@ -22,7 +22,7 @@ if(!empty($usermail) && !empty($pword)){
       $_SESSION['email'] = $user->email;
       $_SESSION['requirements']=$regId;
       header('Location:');
-      $_SESSION['user']." and ".$_SESSION['email'];
+      //$_SESSION['user']." and ".$_SESSION['email'];
     }
     else{
         echo "username and password mismatch";
