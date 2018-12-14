@@ -25,14 +25,9 @@
       <change afterPath="$PROJECT_DIR$/../ikizamini/include/staff.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../ikizamini/include/student.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../ikizamini/include/timeTable.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/fetchUniversityOutOfUniversity.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/recordOtherFaculityOnUniversity.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/serchStudent.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/returnUniversityByFaculity.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/pro.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/pro.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/returnFaculityByUniversity.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/returnFaculityByUniversity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/faculity.php" beforeDir="false" afterPath="$PROJECT_DIR$/include/faculity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/student.php" beforeDir="false" afterPath="$PROJECT_DIR$/include/student.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/returnFaculityByProgram.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/returnFaculityByProgram.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/university.php" beforeDir="false" afterPath="$PROJECT_DIR$/include/university.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -80,28 +75,28 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="html" value="1" />
-          <entry key="php" value="151" />
+          <entry key="php" value="154" />
           <entry key="sql" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="HTML" value="1" />
-          <entry key="PHP" value="151" />
+          <entry key="PHP" value="154" />
           <entry key="Scratch" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="410" />
-          <entry key="php" value="22011" />
+          <entry key="php" value="22364" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="410" />
-          <entry key="PHP" value="21710" />
-          <entry key="SQL" value="301" />
+          <entry key="PHP" value="22059" />
+          <entry key="SQL" value="305" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.new.class">
@@ -113,29 +108,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/include/university.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="711">
-              <caret line="281" selection-start-line="281" selection-end-line="281" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/recordOtherFaculityOnUniversity.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/assignUniversityFaculity.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="30" column="1" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
+            <state relative-caret-position="643">
+              <caret line="282" column="150" selection-start-line="282" selection-start-column="150" selection-end-line="282" selection-end-column="150" />
               <folding>
                 <element signature="e#6#87#0#PHP" />
               </folding>
@@ -143,20 +120,38 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/include/student.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controller/recordingUniversity.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="518">
-              <caret line="854" column="199" selection-start-line="854" selection-start-column="199" selection-end-line="854" selection-end-column="199" />
+            <state relative-caret-position="663">
+              <caret line="59" column="86" lean-forward="true" selection-start-line="59" selection-start-column="24" selection-end-line="59" selection-end-column="86" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/serchStudent.php">
+        <entry file="file://$PROJECT_DIR$/controller/returnUniversityByFaculity.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+            <state relative-caret-position="51">
+              <caret line="8" column="36" lean-forward="true" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controller/returnFaculityByProgram.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/student.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="518">
+              <caret line="854" column="199" selection-start-line="854" selection-start-column="199" selection-end-line="854" selection-end-column="199" />
             </state>
           </provider>
         </entry>
@@ -187,7 +182,6 @@
         <option value="$PROJECT_DIR$/controller/returnPrograms.php" />
         <option value="$PROJECT_DIR$/controller/pro.html" />
         <option value="$PROJECT_DIR$/controller/recordProgram.php" />
-        <option value="$PROJECT_DIR$/controller/returnFaculityByProgram.php" />
         <option value="$PROJECT_DIR$/controller/recordFaculity.php" />
         <option value="$PROJECT_DIR$/controller/recordEvents.php" />
         <option value="$PROJECT_DIR$/include/event.php" />
@@ -215,7 +209,6 @@
         <option value="$PROJECT_DIR$/controller/createAccount.php" />
         <option value="$PROJECT_DIR$/controller/login.php" />
         <option value="$PROJECT_DIR$/include/program.php" />
-        <option value="$PROJECT_DIR$/include/university.php" />
         <option value="$PROJECT_DIR$/include/faculity.php" />
         <option value="$PROJECT_DIR$/controller/fetchUniversityOutOfUniversity.php" />
         <option value="$PROJECT_DIR$/controller/returnFaculityByUniversity.php" />
@@ -224,6 +217,9 @@
         <option value="$PROJECT_DIR$/controller/returnTodaysStudents.php" />
         <option value="$PROJECT_DIR$/controller/serchStudent.php" />
         <option value="$PROJECT_DIR$/include/student.php" />
+        <option value="$PROJECT_DIR$/controller/returnUniversityByFaculity.php" />
+        <option value="$PROJECT_DIR$/controller/returnFaculityByProgram.php" />
+        <option value="$PROJECT_DIR$/include/university.php" />
       </list>
     </option>
   </component>
@@ -236,7 +232,7 @@
   <component name="PhpServers">
     <servers />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="260" />
     <option name="y" value="20" />
     <option name="width" value="1400" />
@@ -314,15 +310,15 @@
       <workItem from="1544599879170" duration="1196000" />
       <workItem from="1544602708251" duration="5015000" />
       <workItem from="1544616298671" duration="2283000" />
-      <workItem from="1544684791722" duration="14311000" />
+      <workItem from="1544684791722" duration="20641000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="133851000" />
+    <option name="totallyTimeSpent" value="140181000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16897655" />
@@ -482,6 +478,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+          <folding>
+            <element signature="e#6#87#0#PHP" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -533,13 +532,6 @@
     <entry file="file://$PROJECT_DIR$/db/include/footer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-199" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/returnFaculityByProgram.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/returnProgramByUniversity.php">
@@ -607,24 +599,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/university.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="711">
-          <caret line="281" selection-start-line="281" selection-end-line="281" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/include/program.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-131">
           <caret line="65" selection-start-line="65" selection-end-line="67" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/recordOtherFaculityOnUniversity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -642,27 +620,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/recordingUniversity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="59" column="86" lean-forward="true" selection-start-line="59" selection-start-column="24" selection-end-line="59" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controller/returnPrograms.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/assignUniversityFaculity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="30" column="1" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
-          <folding>
-            <element signature="e#6#87#0#PHP" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -680,10 +641,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/controller/assignUniversityFaculity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="30" column="1" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
+          <folding>
+            <element signature="e#6#87#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/recordOtherFaculityOnUniversity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/include/student.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="518">
           <caret line="854" column="199" selection-start-line="854" selection-start-column="199" selection-end-line="854" selection-end-column="199" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/returnFaculityByProgram.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/recordingUniversity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="59" column="86" lean-forward="true" selection-start-line="59" selection-start-column="24" selection-end-line="59" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/returnUniversityByFaculity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="8" column="36" lean-forward="true" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/university.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="643">
+          <caret line="282" column="150" selection-start-line="282" selection-start-column="150" selection-end-line="282" selection-end-column="150" />
+          <folding>
+            <element signature="e#6#87#0#PHP" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -7,9 +7,7 @@
  */
  include '../include/faculity.php';
 $faculities = new Faculity();
-
 $programId = $_POST['program'];
-
 $query = $faculities->returnFaculityByProgramId($programId);
 $faculi = array();
 
