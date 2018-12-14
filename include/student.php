@@ -23,12 +23,19 @@ private $weChat;
 private $chineseLevel;
 private $religion;
 private $hobby;
+private $adviserNumber;
+private $gender;
+private $studentPhoneNumber;
 //registration table
 private $university;
 private $program;
 private $faculity;
 private $preferedLanguage;
 private $studentPlan;
+private $visaNumber;
+private $validVisa;
+private $highDegree;
+private $score;
 //experiences
 private $from;
 private $to;
@@ -68,11 +75,117 @@ private $studFiles;
     /**
      * @return mixed
      */
+    public function getAdviserNumber()
+    {
+        return $this->adviserNumber;
+    }
+
+    /**
+     * @param mixed $adviserNumber
+     */
+    public function setAdviserNumber($adviserNumber)
+    {
+        $this->adviserNumber = $adviserNumber;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getGender()
+    {
+        return $this->gender;
+    }
+
+    /**
+     * @param mixed $gender
+     */
+    public function setGender($gender)
+    {
+        $this->gender = $gender;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStudentPhoneNumber()
+    {
+        return $this->studentPhoneNumber;
+    }
+
+    /**
+     * @param mixed $studentPhoneNumber
+     */
+    public function setStudentPhoneNumber($studentPhoneNumber)
+    {
+        $this->studentPhoneNumber = $studentPhoneNumber;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVisaNumber()
+    {
+        return $this->visaNumber;
+    }
+
+    /**
+     * @param mixed $visaNumber
+     */
+    public function setVisaNumber($visaNumber)
+    {
+        $this->visaNumber = $visaNumber;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getValidVisa()
+    {
+        return $this->validVisa;
+    }
+
+    /**
+     * @param mixed $validVisa
+     */
+    public function setValidVisa($validVisa)
+    {
+        $this->validVisa = $validVisa;
+    }
+    /**
+     * @return mixed
+     */
+    public function getHighDegree()
+    {
+        return $this->highDegree;
+    }
+    /**
+     * @param mixed $highDegree
+     */
+    public function setHighDegree($highDegree)
+    {
+        $this->highDegree = $highDegree;
+    }
+    /**
+     * @return mixed
+     */
+    public function getScore()
+    {
+        return $this->score;
+    }
+    /**
+     * @param mixed $score
+     */
+    public function setScore($score)
+    {
+        $this->score = $score;
+    }
+    /**
+     * @return mixed
+     */
     public function getFromjob()
     {
         return $this->fromjob;
     }
-
     /**
      * @param mixed $fromjob
      */
@@ -96,7 +209,6 @@ private $studFiles;
     {
         $this->tojob = $tojob;
     }
-
     /**
      * @return mixed
      */
@@ -104,7 +216,6 @@ private $studFiles;
     {
         return $this->companyjob;
     }
-
     /**
      * @param mixed $companyjob
      */
@@ -798,8 +909,8 @@ private $studFiles;
         return $query;
     }
     public function recordStudent(){
-        $query = $this->connection->query("INSERT INTO `student`(`passPort`, `firstName`, `lastName`, `nationality`, `dateOfBirth`, `placeOfBirth`, `locationOfBirth`, `validUntil`, `nativeLanguage`, `emailAddress`, `weChatNumber`, `chineseLevel`, `Religion`, `hobby`,`profileImage`) 
-VALUES ('$this->passPort','$this->firstName','$this->lastName','$this->nationality','$this->dateOfB','$this->placeOfB','$this->locationOfBirth','$this->ppValid','$this->nativeLang','$this->email','$this->weChat','$this->chineseLevel','$this->religion','$this->hobby','$this->profile')");
+        $query = $this->connection->query("INSERT INTO `student`(`passPort`, `firstName`, `lastName`, `gender`, `studentPhoneNumber`, `adviserNumber`, `nationality`, `dateOfBirth`, `placeOfBirth`, `locationOfBirth`, `validUntil`, `nativeLanguage`, `emailAddress`, `weChatNumber`, `chineseLevel`, `Religion`, `hobby`,`profileImage`) 
+VALUES ('$this->passPort','$this->firstName','$this->lastName','$this->gender','$this->studentPhoneNumber','$this->adviserNumber','$this->nationality','$this->dateOfB','$this->placeOfB','$this->locationOfBirth','$this->ppValid','$this->nativeLang','$this->email','$this->weChat','$this->chineseLevel','$this->religion','$this->hobby','$this->profile')");
         return $query;
     }
     public function recordSAcademicHistory(){
@@ -808,8 +919,8 @@ VALUES ('$this->passPort','$this->firstName','$this->lastName','$this->nationali
         return $query;
     }
     public function registrate($registrationNumber){
-        $query = $this->connection->query("INSERT INTO `registration`(`id`, `passPort`, `university`, `program`, `faculity`, `tlanguage`, `studentPlan`, `studentsFiles`) 
-                                          VALUES ('$registrationNumber','$this->passPort','$this->university','$this->program','$this->faculity','$this->preferedLanguage','$this->studentPlan','$this->studFiles')");
+        $query = $this->connection->query("INSERT INTO `registration`(`id`, `passPort`, `university`, `program`, `faculity`, `tlanguage`, `visaNumber`, `validVisa`, `highDegree`, `scoreNumber`, `studentPlan`, `studentsFiles`) 
+                                          VALUES ('$registrationNumber','$this->passPort','$this->university','$this->program','$this->faculity','$this->preferedLanguage','$this->visaNumber','$this->validVisa','$this->highDegree','$this->score','$this->studentPlan','$this->studFiles')");
 
         if($query)
         {

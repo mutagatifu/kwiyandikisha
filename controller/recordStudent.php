@@ -10,6 +10,9 @@ $student = new Student();
 $passPort = $_POST['passport'];
 $firstName = $_POST['fname'];
 $lastName  = $_POST['lname'];
+$gender = $_POST['gender'];
+$studentPhoneNumber=$_POST['studentphonenumber'];
+$adviser = $_POST['advisernumber'];
 $nationality = $_POST['nationality'];
 $dateOfB = $_POST['birthdate'];
 $placeOfB = $_POST['placeofBirth'];
@@ -28,9 +31,28 @@ $university = $_POST['university'];
 $program = $_POST['program'];
 $faculity = $_POST['faculity'];
 $preferedLanguage = $_POST['preflanguage'];
+$visaNumber = $_POST['visanumber'];
+$validVisa = $_POST['validvisa'];
+if (empty($visaNumber)){
+    $visaNumbers = "none";
+}
+else{
+    $visaNumbers=$visaNumber;
+}
+if (empty($validVisa)){
+    $validVisas = "none";
+}
+else{
+    $validVisas=$validVisa;
+}
+$highDegree = $_POST['highdegree'];
+$score = $_POST['scorenumber'];
 $studentPlan = $_POST['studeplan'];
 $studFiles = $_FILES['studfiles']['name'];
 $studFilestmp = $_FILES['studfiles']['tmp_name'];
+$studFileSize = $_FILES['studfiles']['size'];
+    //getimagesize($studFilestmp);
+    //$_FILES['studfiles']['size'];
 //academic history
 $from = $_POST['from'];
 $to = $_POST['to'];
@@ -66,16 +88,17 @@ $occupation2 = $_POST['occupation2'];
 
 
 //validate the personal info
-if (!empty($passPort) && !empty($firstName) && !empty($lastName) && !empty($nationality) && !empty($dateOfB) && !empty($placeOfB) && !empty($locationOfBirth) && !empty($ppValid) && !empty($nativeLang) && !empty($email) && !empty($weChat) && !empty($chineseLevel) && !empty($religion) && !empty($hobby)){
-    echo " personal info are available";
-    if (!empty($university) && !empty($program) && !empty($faculity) && !empty($preferedLanguage) && !empty($studentPlan)){
-        echo "registration info are available";
+if (!empty($passPort) && !empty($firstName) && !empty($lastName) && !empty($nationality) && !empty($dateOfB) && !empty($placeOfB) && !empty($locationOfBirth) && !empty($ppValid) &&
+    !empty($nativeLang) && !empty($email) && !empty($weChat) && !empty($chineseLevel) && !empty($religion) && !empty($hobby) && !empty($gender) && !empty($adviser) && !empty($studentPhoneNumber)){
+    //echo " personal info are available";
+    if (!empty($university) && !empty($program) && !empty($faculity) && !empty($preferedLanguage) && !empty($studentPlan) && !empty($highDegree) && !empty($score)){
+        //echo "registration info are available";
         if (!empty($from) && !empty($to) && !empty($school) && !empty($field)){
-            echo "academic info 1 are avalable";
+            //echo "academic info 1 are avalable";
             if (!empty($relation) && !empty($relative) && !empty($ages) && !empty($relativeEmail) && !empty($phoneNumber) && !empty($company) && !empty($occupation)){
-                echo "relation 1 is present";
+                //echo "relation 1 is present";
                 if(!empty($relation2) && !empty($relative2) && !empty($ages2) && !empty($relativeEmail2) && !empty($phoneNumber2) && !empty($company2) && !empty($occupation2)) {
-                    echo "relation 2 is present";
+                    //echo "relation 2 is present";
                     //
                     $imageExtension = pathinfo($profile, PATHINFO_EXTENSION);
                     $allowedtype = array('PNG', 'jpg', 'jpeg', 'png', 'JPG', 'JPEG');
@@ -89,17 +112,23 @@ if (!empty($passPort) && !empty($firstName) && !empty($lastName) && !empty($nati
                             $filesExtension = pathinfo($studFiles, PATHINFO_EXTENSION);
                             $filestype = array('zip', 'ZIP', 'rar');
                             if (!in_array($filesExtension, $filestype)) {
-                                echo "please Zip the documents in one folder, name it your familly name and try again";
-                            } else {
+                                echo "please Zip the documents in one folder not exceeding 2M, name it your familly name and try again";
+                            }
+                            else {
                                 $filestarget = "documents/" . basename($studFiles);
                                 $sendfiles = move_uploaded_file($studFilestmp, $filestarget);
                                 if (!$sendfiles) {
-                                    echo "failed to send the docs";
+                                    //else if ()
+                                    echo "your fdocuments exceeds 2M";
                                 } else {
+                                    //echo "documents in size".$studFileSize;
                                     echo "start querying";
                                     $student->setPassPort($passPort);
                                     $student->setFirstName($firstName);
                                     $student->setLastName($lastName);
+                                    $student->setAdviserNumber($adviser);
+                                    $student->setGender($gender);
+                                    $student->setStudentPhoneNumber($studentPhoneNumber);
                                     $student->setNationality($nationality);
                                     $student->setDateOfB($dateOfB);
                                     $student->setPlaceOfB($placeOfB);
@@ -119,6 +148,10 @@ if (!empty($passPort) && !empty($firstName) && !empty($lastName) && !empty($nati
                                     $student->setProgram($program);
                                     $student->setFaculity($faculity);
                                     $student->setPreferedLanguage($preferedLanguage);
+                                    $student->setVisaNumber($visaNumbers);
+                                    $student->setValidVisa($validVisas);
+                                    $student->setHighDegree($highDegree);
+                                    $student->setScore($score);
                                     $student->setStudentPlan($studentPlan);
                                     $student->setStudFiles($filestarget);
                                     /*$studFiles = $_FILES['studfiles']['name'];
@@ -177,18 +210,18 @@ if (!empty($passPort) && !empty($firstName) && !empty($lastName) && !empty($nati
                                         $query = $student->recordStudent();
                                         if ($query) {
                                             //second query
-                                            echo "register student";
+                                            //echo "register student";
                                             $query1 = $student->registrate($registrationNumber);
                                             if ($query1) {
-                                                echo "student registration";
+                                                //echo "student registration";
                                                 //third query
                                                 $query2 = $student->recordSAcademicHistory();
                                                 if ($query2) {
-                                                    echo "academic record";
+                                                    //echo "academic record";
                                                     //fourth query
                                                     $query3 = $student->studentRelationShip();
                                                     if ($query3) {
-                                                        echo "relation1 ";
+                                                        //echo "relation1 ";
                                                         $query4 =$student->studentRelationShip2();
                                                         if($query4){
                                                             echo "success! you can now track your application using " . " " . $registrationNumber;
@@ -204,7 +237,7 @@ if (!empty($passPort) && !empty($firstName) && !empty($lastName) && !empty($nati
                                                                     echo "success job registerd";
                                                                 }
                                                                 else{
-                                                                    echo "failed".$query5;
+                                                                    //echo "failed".$query5;
                                                                 }
                                                             }
                                                             if(!empty($from2) && !empty($to2) && !empty($field2) && !empty($school2)){
@@ -214,7 +247,7 @@ if (!empty($passPort) && !empty($firstName) && !empty($lastName) && !empty($nati
                                                                 $student->setSchool2($school2);
                                                                 $query6 = $student->recordSAcademicHistory2();
                                                                 if ($query6){
-                                                                    echo "success academic 2";
+                                                                    //echo "success academic 2";
                                                                 }
                                                                 else{
                                                                     echo "failed academic 2".$query6;
@@ -245,7 +278,14 @@ if (!empty($passPort) && !empty($firstName) && !empty($lastName) && !empty($nati
                                         else{
                                             echo "problem with query if registering the student info";
                                         }
-                                    }}}}
+                                    }
+
+                                }
+
+                            }
+
+
+                        }
 
 
                         else {

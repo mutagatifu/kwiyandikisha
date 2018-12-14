@@ -283,7 +283,7 @@ universityfaculity.faculity=faculity.id and universityfaculity.university=univer
        return $query;
     }
     public function returnRegistrationData($id){
-       $query = $this->connection->query("select universityfaculity.id,universityfaculity.university,university.name as universityName,university.province,universityfaculity.faculity,faculity.name as 
+       $query = $this->connection->query("select universityfaculity.id,universityfaculity.university,university.name as universityName,university.province,university.logo,universityfaculity.faculity,faculity.name as 
 faculityName,faculity.program,programs.names as degree,programs.startingDate,universityfaculity.language,universityfaculity.price from universityfaculity,university,faculity,programs where 
 universityfaculity.id='$id' and universityfaculity.university=university.id and universityfaculity.faculity=faculity.id and faculity.program=programs.id;");
        return $query;
