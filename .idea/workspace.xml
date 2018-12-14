@@ -25,10 +25,8 @@
       <change afterPath="$PROJECT_DIR$/../ikizamini/include/staff.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../ikizamini/include/student.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../ikizamini/include/timeTable.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/createStudentaccount.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/recordStudent.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/recordStudent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/student.php" beforeDir="false" afterPath="$PROJECT_DIR$/include/student.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/university.php" beforeDir="false" afterPath="$PROJECT_DIR$/include/university.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -75,27 +73,27 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="html" value="1" />
-          <entry key="php" value="157" />
+          <entry key="php" value="159" />
           <entry key="sql" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="HTML" value="1" />
-          <entry key="PHP" value="157" />
+          <entry key="PHP" value="159" />
           <entry key="Scratch" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="410" />
-          <entry key="php" value="23730" />
+          <entry key="php" value="24215" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="410" />
-          <entry key="PHP" value="23423" />
+          <entry key="PHP" value="23908" />
           <entry key="SQL" value="307" />
         </counts>
       </usages-collector>
@@ -111,11 +109,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/include/university.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="290" selection-start-line="290" selection-end-line="290" />
+            <state relative-caret-position="1462">
+              <caret line="290" lean-forward="true" selection-start-line="290" selection-end-line="290" />
               <folding>
                 <element signature="e#6#87#0#PHP" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/accounts.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="634">
+              <caret line="78" column="20" lean-forward="true" selection-start-line="78" selection-start-column="20" selection-end-line="78" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/controller/createStudentaccount.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="578">
+              <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -129,7 +145,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controller/login.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
@@ -179,8 +195,8 @@
       <find>setprofile</find>
       <find>universityProgram</find>
       <find>returnFaculityByProgramId</find>
-      <find>returnFaculityByUniversity</find>
       <find>setvali</find>
+      <find>returnFaculityByUniversity</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -234,6 +250,7 @@
         <option value="$PROJECT_DIR$/include/university.php" />
         <option value="$PROJECT_DIR$/include/student.php" />
         <option value="$PROJECT_DIR$/controller/recordStudent.php" />
+        <option value="$PROJECT_DIR$/controller/createStudentaccount.php" />
       </list>
     </option>
   </component>
@@ -324,12 +341,12 @@
       <workItem from="1544599879170" duration="1196000" />
       <workItem from="1544602708251" duration="5015000" />
       <workItem from="1544616298671" duration="2283000" />
-      <workItem from="1544684791722" duration="34747000" />
+      <workItem from="1544684791722" duration="37045000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="154287000" />
+    <option name="totallyTimeSpent" value="156585000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -447,13 +464,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="515">
           <caret line="74" column="42" lean-forward="true" selection-start-line="74" selection-start-column="42" selection-end-line="74" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/accounts.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="65" column="5" selection-start-line="65" selection-start-column="5" selection-end-line="65" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -683,16 +693,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/university.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="290" selection-start-line="290" selection-end-line="290" />
-          <folding>
-            <element signature="e#6#87#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/include/student.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="268">
@@ -732,6 +732,30 @@
           <folding>
             <element signature="e#6#87#0#PHP" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/university.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1462">
+          <caret line="290" lean-forward="true" selection-start-line="290" selection-end-line="290" />
+          <folding>
+            <element signature="e#6#87#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/accounts.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="634">
+          <caret line="78" column="20" lean-forward="true" selection-start-line="78" selection-start-column="20" selection-end-line="78" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/createStudentaccount.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
         </state>
       </provider>
     </entry>
