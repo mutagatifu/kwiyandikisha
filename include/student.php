@@ -951,7 +951,7 @@ VALUES ('$this->passPort','$this->firstName','$this->lastName','$this->gender','
         return $query;
     }
     public function returnStudentsWithPayments(){
-        $query = $this->connection->query("select registration.id,registration.passPort,student.firstName,student.lastName,student.weChatNumber,student.profileImage,
+        $query = $this->connection->query("select registration.id,registration.passPort,student.firstName,student.lastName,student.weChatNumber,student.profileImage,student.nationality,
         registration.university,university.name as university,registration.program,programs.names as degree,registration.faculity,faculity.name as course,registration.payment from 
         registration,student,university,programs,faculity where registration.passPort=student.passPort and registration.university=university.id and registration.program=programs.id 
         and registration.faculity=faculity.id");
@@ -979,4 +979,56 @@ OR university.name LIKE  '%$search%'
         return $query;
     }
 
+
+    public function returnStudent(){
+    $query = $this->connection->query("SELECT registration.university,registration.program,registration.faculity, registration.tlanguage,registration.visaNumber,registration.validVisa, registration.highDegree,registration.scoreNumber,
+registration.studentPlan, registration.studentsFiles, registration.payment,relationships2.relation2 as isano2, relationships2.names2 as relation2, relationships2.ages2, relationships2.emails2 as
+relatEmail2, relationships2.phoneNumber2 as relativePhone2, relationships2.company2 as relativeCompany2,relationships2.occupation2 as relatOccupation2,
+relationships.relation, relationships.studentsPC, relationships.names, relationships.ages, relationships.emails, relationships.phoneNumber, relationships.company AS relativecompany2, relationships.occupation,
+student.passPort, student.firstName, student.lastName,student.nationality,student.gender, student.studentPhoneNumber, student.adviserNumber, student.nationality, student.dateOfBirth,
+student.placeOfBirth, student.locationOfBirth, student.validUntil, student.nativeLanguage, student.emailAddress, student.weChatNumber, student.chineseLevel, student.Religion, student.hobby,
+student.profileImage
+, registration.id, registration.studentsFiles, registration.payment, academichistory.school, academichistory2.school2, relationships2.names2,
+experience.school AS ExperienceCompany,experience.from as experienceFrom, experience.to experinceTo,  experience.field as experienceField, academichistory.school AS school1, relationships.company AS relativecompany1, relationships.names AS relative1,university.name,faculity.name as faculity,programs.names as
+degree,academichistory.from as startSchool1, academichistory.to as endSchool1, academichistory.field as field1
+FROM student
+RIGHT JOIN registration ON student.passPort = registration.passPort
+LEFT JOIN academichistory ON student.passPort = academichistory.studentsPC
+LEFT JOIN academichistory2 ON student.passPort = academichistory2.studentsPc
+LEFT JOIN relationships2 ON student.passPort = relationships2.studentsPC
+LEFT JOIN experience ON student.passPort = experience.studentsPC
+LEFT JOIN relationships ON student.passPort = relationships.studentsPC join university on registration.university=university.id join faculity on registration.faculity=faculity.id join programs on
+registration.program=programs.id");
+    return $query;
+    }
+/*SELECT
+relationships.relation, relationships.studentsPC, relationships.names, relationships.ages, relationships.emails, relationships.phoneNumber, relationships.company, relationships.occupation, student.passPort, student.firstName, student.lastName, registration.id, registration.studentsFiles, registration.payment, academichistory.school, academichistory2.school2, relationships2.names2, experience.school AS company, academichistory.school AS school1, relationships.company AS company1, relationships.names AS relative1
+FROM student
+RIGHT JOIN registration ON student.passPort = registration.passPort
+LEFT JOIN academichistory ON student.passPort = academichistory.studentsPC
+LEFT JOIN academichistory2 ON student.passPort = academichistory2.studentsPc
+LEFT JOIN relationships2 ON student.passPort = relationships2.studentsPC
+LEFT JOIN experience ON student.passPort = experience.studentsPC
+LEFT JOIN relationships ON student.passPort = relationships.studentsPC*/
+
+
+/*SELECT registration.university,registration.program,registration.faculity, registration.tlanguage,registration.visaNumber,registration.validVisa, registration.highDegree,registration.scoreNumber,
+registration.studentPlan, registration.studentsFiles, registration.payment,relationships2.relation2 as isano2, relationships2.names2 as relation2, relationships2.ages2, relationships2.emails2 as
+relatEmail2, relationships2.phoneNumber2 as relativePhone2, relationships2.company2 as relativeCompany2,relationships2.occupation2 as relatOccupation2,
+relationships.relation, relationships.studentsPC, relationships.names, relationships.ages, relationships.emails, relationships.phoneNumber, relationships.company AS relativecompany2, relationships.occupation,
+student.passPort, student.firstName, student.lastName,student.nationality,student.gender, student.studentPhoneNumber, student.adviserNumber, student.nationality, student.dateOfBirth,
+student.placeOfBirth, student.locationOfBirth, student.validUntil, student.nativeLanguage, student.emailAddress, student.weChatNumber, student.chineseLevel, student.Religion, student.hobby,
+student.profileImage
+, registration.id, registration.studentsFiles, registration.payment, academichistory.school, academichistory2.school2, relationships2.names2,
+experience.school AS ExperienceCompany,experience.from as experienceFrom, experience.to experinceTo,  experience.field as experienceField, academichistory.school AS school1, relationships.company AS relativecompany1, relationships.names AS relative1,university.name,faculity.name as faculity,programs.names as
+degree,academichistory.from as startSchool1, academichistory.to as endSchool1, academichistory.field as field1
+FROM student
+RIGHT JOIN registration ON student.passPort = registration.passPort
+LEFT JOIN academichistory ON student.passPort = academichistory.studentsPC
+LEFT JOIN academichistory2 ON student.passPort = academichistory2.studentsPc
+LEFT JOIN relationships2 ON student.passPort = relationships2.studentsPC
+LEFT JOIN experience ON student.passPort = experience.studentsPC
+LEFT JOIN relationships ON student.passPort = relationships.studentsPC join university on registration.university=university.id join faculity on registration.faculity=faculity.id join programs on
+registration.program=programs.id*/
 }
+

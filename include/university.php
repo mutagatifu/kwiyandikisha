@@ -285,9 +285,24 @@ universityfaculity.faculity=faculity.id and universityfaculity.university=univer
     public function returnRegistrationData($id){
        $query = $this->connection->query("select universityfaculity.id,universityfaculity.university,university.name as universityName,university.province,university.logo,universityfaculity.faculity,faculity.name as 
 faculityName,faculity.program,programs.names as degree,programs.startingDate,universityfaculity.language,universityfaculity.price from universityfaculity,university,faculity,programs where 
-universityfaculity.id='$id' and universityfaculity.university=university.id and universityfaculity.faculity=faculity.id and faculity.program=programs.id;");
+universityfaculity.id='$id' and universityfaculity.university=university.id and universityfaculity.faculity=faculity.id and faculity.program=programs.id");
        return $query;
     }
+    public function returnUniversityInfo($university,$program){
+        $query = $this->connection->query("select universityfaculity.id,universityfaculity.university,universityfaculity.faculity,universityfaculity.language,universityfaculity.price,faculity.name,faculity.program,programs.names as 
+degree,programs.startingDate,programs.duration from universityfaculity,faculity,programs where universityfaculity.faculity=faculity.id and faculity.program=programs.id and 
+universityfaculity.university='$university' and faculity.program='$program'");
+        return $query;
+        
+    }
+
+    public function returnProgramsByUniversity($unId)
+    {
+        $query = $this->connection->query("select universityfaculity.university,universityfaculity.faculity,universityfaculity.language,count(faculity.name) as 
+faculities,faculity.program,programs.names,programs.startingDate,programs.duration from universityfaculity,faculity,programs where universityfaculity.faculity=faculity.id and 
+faculity.program=programs.id and universityfaculity.university='$unId' group by universityfaculity.university,faculity.program");
+        return $query;
+}
 
 
 }

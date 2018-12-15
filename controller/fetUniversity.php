@@ -24,7 +24,7 @@ $query1 = $university->universityProgram($unId);
 foreach ($query1 as $result){
     $progra[]=$result;
 }
-$program[]=$univers;
+$program[]=$row;
 $program[]=$progra;
 $byose[]=$program;
 $returnJs=array('status'=>1,'message'=>"success",'data'=>$byose);
