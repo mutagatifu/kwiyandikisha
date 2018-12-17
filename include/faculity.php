@@ -95,4 +95,14 @@ class Faculity extends DbConnection
         return $query;
     }
 
+    public function returnAllPrograms(){
+        $query = $this->connection->query("select * from programs where status!=99");
+        if ($query){
+            return $query;
+        }
+        else{
+            return $query.mysqli_error($this->connection);
+        }
+    }
+
 }

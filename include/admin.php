@@ -86,5 +86,13 @@ public function checkLogin(){
         $query = $this->connection->query("select * from admin where email='$this->emails' and password='$this->password'");
         return $query;
 }
+public function checkmails(){
+    $query = $this->connection->query("select * from admin where email='$this->emails'");
+    return $query;
+}
+public function resetPassword(){
+    $query=$this->connection->query("update admin set password='$this->password'");
+    return $query;
+}
 
 }

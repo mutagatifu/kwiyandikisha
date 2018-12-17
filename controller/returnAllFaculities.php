@@ -10,12 +10,22 @@ include '../include/faculity.php';
 
 $facul = new Faculity();
 
-$query = $facul->returnFaculities();
-$falulities = array();
+$byose=array();
+$query = $facul->returnAllPrograms();
+//$programs = $query->fetch_object();
+while($programs = $query->fetch_object())
+{
+    $faculities = array();
+    $poropgas = array();
+    $progId=$programs->id;
+    $query2=$facul->returnFaculityByProgramId( $progId);
+    while($result = $query2->fetch_object()){
+        $faculities[]=$result;
+    }
+    $poropgas['programs']=$programs;
+    $poropgas['faculities']=$faculities;
+    $byose[]=$poropgas;
 
-foreach ($query as $rows){
-    $falulities[]=$rows;
 }
-
-echo json_encode($falulities);
+echo json_encode($byose);
 ?>
