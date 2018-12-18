@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>My first chart using FusionCharts Suite XT</title>
+<script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+<script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
+<script type="text/javascript">
+ FusionCharts.ready(function() {
+  var revComp = new FusionCharts({
+      type: 'vbullet',
+      renderAt: 'chart-container',
+      width: '120',
+      height: '500',
+      dataFormat: 'json',
+      dataSource: {
+        "chart": {
+          "theme": "fusion",
+          "lowerLimit": "0",
+          "subCaptionFontSize": "22",
+          "upperLimit": "45",
+          "caption": "Last Month Revenue",
+      
+          "chartBottomMargin": "32"
+        },
+        "colorRange": {
+          "color": [{
+            "minValue": "0",
+            "maxValue": "15",
+            "code": "#e44a00"
+          }, {
+            "minValue": "15",
+            "maxValue": "30",
+            "code": "#f8bd19"
+          }, {
+            "minValue": "30",
+            "maxValue": "45",
+            "code": "#6baa01"
+          }]
+        },
+        "value": "37"
+      }
+    })
+    .render();
+});
+//https://www.fusioncharts.com/dev/chart-guide/gauges-and-widgets/cylinder-gauge
+</script>
+</head>
+<body>
+    <div id="chart-container">FusionCharts XT will load here!</div>
+</body>
+</html>

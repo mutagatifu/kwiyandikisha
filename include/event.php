@@ -10,13 +10,27 @@ include 'dbconnection.php';
 
 class Event extends DbConnection
 {
-
+    private $id;
     private $name;
     private $descriptions;
     private $location;
     private $time;
     private $image;
 
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
     /**
      * @return mixed
      */
@@ -93,8 +107,30 @@ class Event extends DbConnection
     }
     /*return all event*/
 public function fetchAllEvents(){
-    $query = $this->connection->query("select * from events");
+    $query = $this->connection->query("select * from events where status!=99");
     return $query;
 }
+
+// delete event
+public function deletEvent(){
+    $query = $this->connection->query("update events set status=99 where id='$this->id'");
+    return $query;
+
+}
+/*update the event*/
+    public function updatEvent($update){
+        $query = $this->connection->query("UPDATE `events` SET `name`='$this->name',`descriptions`='$this->descriptions',`location`='$this->location',`time`='$this->time' ,`updatedDate`='$update' WHERE `id`='$this->id'");
+        if($query){
+            return $query;
+        }
+        else{
+            return $query.mysqli_error($this->connection);
+        }
+
+    }
+
+
+
+
 
 }
