@@ -8,12 +8,27 @@
 include 'dbconnection.php';
 class Program extends DbConnection
 {
+    private $id;
 private $name;
 private $duration;
 //private $language;
 //private $university;
 private $startingDate;
 
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
     /**
      * @return mixed
      */
@@ -104,16 +119,23 @@ universityfaculity.price,faculity.name,faculity.program,programs.names from univ
 where universityfaculity.faculity=faculity.id and faculity.program=programs.id and universityfaculity.university='$universityID' group by faculity.program;");
         return $query;
 }
-public function updateProgram($programId,$updateDate){
-        $query = $this->connection->query("UPDATE `programs` SET `names`='$this->name',`startingDate`='$this->startingDate',
-`duration`='$this->duration',`university`='$this->university',`language`='$this->language',`updatedDate`='$updateDate' WHERE id='$programId'");
-        return $query;
+public function updateProgram($update){
+        $query = $this->connection->query("UPDATE `programs` SET `names`='$this->name',`startingDate`='$this->startingDate',`duration`='$this->duration',
+                                `updatedDate`='$update' WHERE `id`='$this->id'");
+        if ($query){
+            return $query;
+        }
+        else{
+            return $query.mysqli_error($this->connection);
+        }
 }
-public function deleteProgram($programId){
-        $query = $this->connection->query("update programs set status=99 where id='$programId'");
-        return $query;
+public function deleteProgram(){
+        $query = $this->connection->query("update programs set status=99 where id='$this->id'");
+        if ($query){
+            return $query;
+        }
+        else{
+            return $query.mysqli_error($this->connection);
+        }
 }
-
-
-
 }

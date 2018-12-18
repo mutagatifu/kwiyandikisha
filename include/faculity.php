@@ -8,10 +8,25 @@
 include '../include/dbconnection.php';
 class Faculity extends DbConnection
 {
+    private $id;
     private $name;
     private $program;
     private $fees;
     private $language;
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
     /**
      * @return mixed
      */
@@ -77,13 +92,24 @@ class Faculity extends DbConnection
         $query = $this->connection->query("select * from faculity where program='$programId' and status!=99");
         return $query;
     }
-    public function updateFaculity($faculityId,$updateDate){
-        $query = $this->connection->query("UPDATE `faculity` SET `name`='$this->name',`program`='$this->program',`fees`='$this->fees',`language`='$this->language',`updatedDate`='$updateDate' WHERE id='$faculityId'");
-        return $query;
+    public function updateFaculity($updateDate){
+        $query = $this->connection->query("UPDATE `faculity` SET `name`='$this->name',`program`='$this->program',`updatedDate`='$updateDate' WHERE id='$this->id'");
+
+        if ($query){
+            return $query;
+        }
+        else{
+            return $query.mysqli_error($this->connection);
+        }
     }
-    public function deleteFaculity($faculityId){
-        $query = $this->connection->query("update faculity set status=99 where id='$faculityId'");
-        return $query;
+    public function deleteFaculity(){
+        $query = $this->connection->query("update faculity set status=99 where id='$this->id'");
+        if ($query){
+            return $query;
+        }
+        else{
+            return $query.mysqli_error($this->connection);
+        }
     }
     public function returnFaculities(){
         $query = $this->connection->query("select * from faculity where status !=99");
