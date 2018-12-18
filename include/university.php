@@ -8,6 +8,7 @@
 include 'dbconnection.php';
 class University extends DbConnection
 {
+    private $id;
     private $name;
     private $country;
     private $province;
@@ -18,11 +19,23 @@ class University extends DbConnection
     private $language;
     private $price;
     private $program;
-
-
     private $programId;
     private $universityId;
 
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
     /**
      * @return mixed
      */
@@ -30,7 +43,6 @@ class University extends DbConnection
     {
         return $this->programId;
     }
-
     /**
      * @param mixed $programId
      */
@@ -38,7 +50,6 @@ class University extends DbConnection
     {
         $this->programId = $programId;
     }
-
     /**
      * @return mixed
      */
@@ -46,7 +57,6 @@ class University extends DbConnection
     {
         return $this->universityId;
     }
-
     /**
      * @param mixed $universityId
      */
@@ -212,11 +222,7 @@ class University extends DbConnection
                                                   VALUES ('$university','$faculity')");
         return $query;
     }
-//    public function recordUniversityFaculity($universityId){
-//        $query = $this->connection->query("INSERT INTO `universityfaculity`(`university`, `program`, `faculity`, `language`, `price`)
-//VALUES ('$universityId','$this->program','$this->faculity','$this->language','$this->price')");
-//        return $query;
-//    }
+
     public function verifyUniversity(){
         $query = $this->connection->query("select * from university where name='$this->name' and country='$this->country' and city='$this->city'");
         return $query;
@@ -226,19 +232,29 @@ class University extends DbConnection
         return $query;
     }
 
-    public function updateUniversity($universityId,$updateDate){
+    public function updateUniversity($updateDate){
         $query = $this->connection->query("UPDATE `university` SET `name`='$this->name',`country`='$this->country',
-                                            `province`='$this->province',`city`='$this->city',`logo`='$this->logo',`description`='$this->description',`updatedDate`='$updateDate' WHERE id='$universityId'");
-        return $query;
+                                            `province`='$this->province',`city`='$this->city',`description`='$this->description',`updatedDate`='$updateDate' WHERE id='$this->id'");
+        if ($query){
+            return $query;
+        }
+        else{
+            return $query.mysqli_error($this->connection);
+        }
     }
 public function fetchCountries(){
         $query = $this->connection->query("select * from country");
         return $query;
 }
 
-public function deleteUniversity($unId){
-    $query = $this->connection->query("update university set status=99 where id='$unId'");
-    return $query;
+public function deleteUniversity(){
+    $query = $this->connection->query("update university set status=99 where id='$this->id'");
+    if ($query){
+        return $query;
+    }
+    else{
+        return $query.mysqli_error($this->connection);
+    }
 }
 public function returnProgramByUniversity($uniId){
     $query = $this->connection->query("select universityfaculity.id,universityfaculity.university,universityfaculity.program,programs.names as degrees,programs.startingDate,programs.duration,

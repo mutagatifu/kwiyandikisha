@@ -7,32 +7,37 @@
  */
 include '../include/university.php';
 $university = new University();
-$universityId = $_POST['uniId'];
+$universityId = $_POST['universityId'];
 $uniName = $_POST['name'];
 $country = $_POST['country'];
 $province = $_POST['province'];
 $city = $_POST['city'];
 $description = $_POST['short'];
-$logo = $_FILES['logo']['name'];
-$logotmp = $_FILES['logo']['tmp_name'];
-$updateDate = date("Y-m-d h:i:s");
+$update = date("Y-m-d h:i:s");
 
+if (!empty($universityId)){
+    $university->setId($universityId);
+    $university->setName($uniName);
+    $university->setCountry($country);
+    $university->setProvince($province);
+    $university->setCity($city);
+    $university->setDescription($description);
 
-$university->setName($uniName);
-$university->setCountry($country);
-$university->setProvince($province);
-$university->setCity($city);
-$university->setLogo($logo);
-$university->setDescription($description);
-
-$target = "uploads/" . basename($logo);
-$sendimage = move_uploaded_file($logotmp, $target);
-$query = $university->updateUniversity($universityId,$updateDate);
-if ($query){
-    echo "success!";
+    $query = $university->updateUniversity($update);
+    if ($query){
+        $message = "success";
+        $status=$query;
+    }
+    else{
+        $message = "update failed";
+        $status=$query;
+    }
 }
 else{
-    echo "failed";
+    $message = "specify the data to update";
+    $status=0;
 }
+$returnJS=array('status'=>$status,'message'=>$message);
+echo json_encode($returnJS);
 
 ?>
