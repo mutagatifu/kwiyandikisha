@@ -220,7 +220,12 @@ class University extends DbConnection
     public function recordUniversityfaculity($university,$faculity){
         $query = $this->connection->query("INSERT INTO `universityfaculity`(`university`, `faculity`) 
                                                   VALUES ('$university','$faculity')");
-        return $query;
+        if ($query){
+            return $query;
+        }
+        else{
+            return $query.mysqli_error($this->connection);
+        }
     }
 
     public function verifyUniversity(){

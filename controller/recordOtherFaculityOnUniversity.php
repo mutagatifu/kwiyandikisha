@@ -19,9 +19,13 @@ if (!empty($unId) && !empty($faculity)){
 //        echo "ni ".$faculity[$i]."byose";
 //        echo "university is: ".$unId;
     }
-    echo "success";
+    $message="success";
+    $status =$query;
 }
 else{
-    echo "no field would be left empty";
+    $message="success";
+    $status =$query;
 }
+$returnJS=array('status'=>$status,'message'=>$message);
+echo json_encode($returnJS);
 ?>
