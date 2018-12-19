@@ -21,7 +21,37 @@ class University extends DbConnection
     private $program;
     private $programId;
     private $universityId;
+    private $universityImages;
+    private $universityImageName;
 
+    /**
+     * @return mixed
+     */
+    public function getUniversityImageName()
+    {
+        return $this->universityImageName;
+    }
+    /**
+     * @param mixed $universityImageName
+     */
+    public function setUniversityImageName($universityImageName)
+    {
+        $this->universityImageName = $universityImageName;
+    }
+    /**
+     * @return mixed
+     */
+    public function getUniversityImages()
+    {
+        return $this->universityImages;
+    }
+    /**
+     * @param mixed $universityImages
+     */
+    public function setUniversityImages($universityImages)
+    {
+        $this->universityImages = $universityImages;
+    }
     /**
      * @return mixed
      */
@@ -64,9 +94,6 @@ class University extends DbConnection
     {
         $this->universityId = $universityId;
     }
-
-
-
     /**
      * @return mixed
      */
@@ -81,7 +108,6 @@ class University extends DbConnection
     {
         $this->program = $program;
     }
-
     /**
      * @return mixed
      */
@@ -324,6 +350,49 @@ faculities,faculity.program,programs.names,programs.startingDate,programs.durati
 faculity.program=programs.id and universityfaculity.university='$unId' group by universityfaculity.university,faculity.program");
         return $query;
 }
+/*record university images*/
+    public function recordUniversityImage(){
+        $query = $this->connection->query("INSERT INTO `universitycompusimage`(`images`, `university`)
+                                                  VALUES ('$this->universityImages','$this->id')");
+        if ($query){
+            return $query;
+        }
+        else{
+            return $query.mysqli_error($this->connection);
+        }
+    }
+/*record university accomodations image*/
+    public function recordUniversityaccomodationImages(){
+        $query = $this->connection->query("INSERT INTO `accomodationimages`(`images`, `university`)
+                                                  VALUES ('$this->universityImages','$this->id')");
+        if ($query){
+            return $query;
+        }
+        else{
+            return $query.mysqli_error($this->connection);
+        }
+    }
+    /*return accomodations images*/
+    public function fetchAccomodations(){
+        $query = $this->connection->query("SELECT * FROM `accomodationimages` ORDER BY id DESC");
+        if ($query){
+            return $query;
+        }
+        else{
+            return $query.mysqli_error($this->connection);
+        }
+    }
 
+    /*return campus images*/
+
+    public function fetchCampusImage(){
+        $query = $this->connection->query("SELECT * FROM  `universitycompusimage` ORDER BY id DESC");
+        if ($query){
+            return $query;
+        }
+        else{
+            return $query.mysqli_error($this->connection);
+        }
+    }
 
 }
