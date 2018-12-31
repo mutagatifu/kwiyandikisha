@@ -2,32 +2,35 @@
 /**
  * Created by PhpStorm.
  * User: Hview
- * Date: 19/12/2018
- * Time: 11:16
+ * Date: 20/12/2018
+ * Time: 12:16
  */
+
+
 include "../include/university.php";
 
 $university = new University();
+
 $universityId=$_POST['university'];
 $accomods=array();
 if (!empty($universityId)){
     $university->setId($universityId);
-$query =$university ->fetchAccomodationsByUniversity();
-$count = mysqli_num_rows($query);
-if ($count) {
+    $query =$university ->fetchCampusImageByUniversity();
+    $count = mysqli_num_rows($query);
+    if ($count) {
 
-    $message = "success";
-    $status = 1;
+        $message = "success";
+        $status = 1;
 
-    foreach ($query as $rows) {
-        $accomods[] = $rows;
+        foreach ($query as $rows) {
+            $accomods[] = $rows;
+        }
     }
-}
-else{
-    $message="no data";
-    $status=$query;
-    $accomods[]=0;
-}
+    else{
+        $message="no data";
+        $status=$query;
+        $accomods[]=0;
+    }
 }
 else{
     $message="fill in university";

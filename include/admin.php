@@ -91,7 +91,7 @@ public function checkmails(){
     return $query;
 }
 public function resetPassword(){
-    $query=$this->connection->query("update admin set password='$this->password'");
+    $query=$this->connection->query("update admin set password='$this->password' where email='$this->emails'");
     return $query;
 }
 

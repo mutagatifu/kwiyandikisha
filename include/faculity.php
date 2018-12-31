@@ -116,10 +116,16 @@ class Faculity extends DbConnection
         return $query;
     }
 
-    public function returnFaculityNotOnUniversity($unId){
-        $query = $this->connection->query("select * from faculity where id not in (select faculity from universityfaculity where university='$unId')");
+    // public function returnFaculityNotOnUniversity($unId){
+    //     $query = $this->connection->query("select * from faculity where id not in (select faculity from universityfaculity where university='$unId')");
+    //     return $query;
+    // }
+
+    public function returnFaculityNotOnUniversity($unId,$prog){
+        $query = $this->connection->query("select * from faculity where id not in (select faculity from universityfaculity where university='$unId') and faculity.program='$prog'");
         return $query;
     }
+
 
     public function returnAllPrograms(){
         $query = $this->connection->query("select * from programs where status!=99");

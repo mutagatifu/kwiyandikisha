@@ -301,8 +301,8 @@ from universityfaculity,faculity where universityfaculity.faculity=faculity.id a
     }
 
 
-    public function returnUniversity($unId){
-        $query=$this->connection->query("select * from university where id='$unId'");
+    public function returnUniversity(){
+        $query=$this->connection->query("select * from university where id='$this->id'");
         return $query;
     }
 
@@ -375,6 +375,30 @@ faculity.program=programs.id and universityfaculity.university='$unId' group by 
     /*return accomodations images*/
     public function fetchAccomodations(){
         $query = $this->connection->query("SELECT * FROM `accomodationimages` ORDER BY id DESC");
+        if ($query){
+            return $query;
+        }
+        else{
+            return $query.mysqli_error($this->connection);
+        }
+    }
+
+    /*return accomodations images by University*/
+    public function fetchAccomodationsByUniversity(){
+        $query = $this->connection->query("SELECT * FROM `accomodationimages` where university='$this->id' ORDER BY id DESC");
+        if ($query){
+            return $query;
+        }
+        else{
+            return $query.mysqli_error($this->connection);
+        }
+    }
+
+
+    /*return campus images by University*/
+
+    public function fetchCampusImageByUniversity(){
+        $query = $this->connection->query("SELECT * FROM  `universitycompusimage` where university='$this->id' ORDER BY id DESC");
         if ($query){
             return $query;
         }
