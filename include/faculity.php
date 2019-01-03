@@ -137,4 +137,10 @@ class Faculity extends DbConnection
         }
     }
 
+
+    public function fetchFaculityById(){
+        $query = $this->connection->query("select faculity.id, name, faculity.program,programs.names FROM faculity,programs where faculity.program=programs.id and faculity.id='$this->id'");
+        return $query;
+    }
+
 }

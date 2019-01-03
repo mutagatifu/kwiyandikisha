@@ -23,7 +23,7 @@ if (!empty($unId) && !empty($faculity)){
     $status =$query;
 }
 else{
-    $message="success";
+    $message="failed";
     $status =$query;
 }
 $returnJS=array('status'=>$status,'message'=>$message);
