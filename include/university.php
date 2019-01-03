@@ -419,4 +419,11 @@ faculity.program=programs.id and universityfaculity.university='$unId' group by 
         }
     }
 
+
+    public function returnGroupedStudentsByUniversity(){
+        $query = $this->connection->query("select university.id,university.name,count(registration.id) as students from university left join 
+                                                  registration on university.id=registration.university group by university.id");
+        return $query;
+    }
+
 }
