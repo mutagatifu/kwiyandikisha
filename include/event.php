@@ -128,7 +128,12 @@ public function deletEvent(){
         }
 
     }
+/*fetch event by Id*/
+    public function fetchEventById(){
+        $query = $this->connection->query("select * from events where status!=99 and id='$this->id'");
+        return $query;
 
+    }
 
 
 
