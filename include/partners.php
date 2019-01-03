@@ -102,7 +102,11 @@ public function returnPartners(){
         }
     }
 
+/*return partner by id*/
+    public function returnPartnerById(){
+        $query = $this->connection->query("SELECT * FROM `partners` WHERE id='$this->id'");
+        return $query;
+    }
 
-    
 
 }

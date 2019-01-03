@@ -116,7 +116,7 @@ public function recordProgram(){
 public function returnProgramByUniversity($universityID){
         $query = $this->connection->query("select universityfaculity.id,universityfaculity.university,universityfaculity.faculity,universityfaculity.language,
 universityfaculity.price,faculity.name,faculity.program,programs.names from universityfaculity,faculity,programs 
-where universityfaculity.faculity=faculity.id and faculity.program=programs.id and universityfaculity.university='$universityID' group by faculity.program;");
+where universityfaculity.faculity=faculity.id and faculity.program=programs.id and universityfaculity.university='$universityID' group by faculity.program");
         return $query;
 }
 public function updateProgram($update){
@@ -138,4 +138,9 @@ public function deleteProgram(){
             return $query.mysqli_error($this->connection);
         }
 }
+/*return program by id*/
+    public function fetchProgramById(){
+        $query = $this->connection->query("select * from programs where id='$this->id'");
+        return $query;
+    }
 }
