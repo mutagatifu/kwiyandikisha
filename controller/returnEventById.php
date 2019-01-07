@@ -5,7 +5,6 @@
  * Date: 03/01/2019
  * Time: 12:52
  */
-
 include "../include/event.php";
 $events = new Event();
 $event=array();
@@ -26,9 +25,6 @@ if (!empty($eventId)){
         $status=0;
         $event[]=0;
     }
-
-
-
 }
 else{
     $message = "specify the event to modify";

@@ -23,7 +23,37 @@ class University extends DbConnection
     private $universityId;
     private $universityImages;
     private $universityImageName;
+    private $accomodationId;
+    private $campusImageId;
 
+    /**
+     * @return mixed
+     */
+    public function getCampusImageId()
+    {
+        return $this->campusImageId;
+    }
+    /**
+     * @param mixed $campusImageId
+     */
+    public function setCampusImageId($campusImageId)
+    {
+        $this->campusImageId = $campusImageId;
+    }
+    /**
+     * @return mixed
+     */
+    public function getAccomodationId()
+    {
+        return $this->accomodationId;
+    }
+    /**
+     * @param mixed $accomodationId
+     */
+    public function setAccomodationId($accomodationId)
+    {
+        $this->accomodationId = $accomodationId;
+    }
     /**
      * @return mixed
      */
@@ -424,6 +454,31 @@ faculity.program=programs.id and universityfaculity.university='$unId' group by 
         $query = $this->connection->query("select university.id,university.name,count(registration.id) as students from university left join 
                                                   registration on university.id=registration.university group by university.id");
         return $query;
+    }
+
+    /*delete accomodation*/
+    public function deleteAccomodImage(){
+        $query = $this->connection->query("DELETE FROM `accomodationimages` where id='$this->accomodationId'");
+        if ($query){
+            return $query;
+        }
+        else{
+            return $query.mysqli_error($this->connection);
+        }
+            //$this->accomodationId
+    }
+
+    /*delete university campus image*/
+    public function deleteCampusImage(){
+        $query = $this->connection->query("DELETE FROM `universitycompusimage` where id='$this->campusImageId'");
+        if ($query){
+            return $query;
+        }
+        else{
+            return $query.mysqli_error($this->connection);
+        }
+
+//$this->campusImageId;
     }
 
 }
