@@ -25,7 +25,22 @@ class University extends DbConnection
     private $universityImageName;
     private $accomodationId;
     private $campusImageId;
+    private $faculityId;
 
+    /**
+     * @return mixed
+     */
+    public function getFaculityId()
+    {
+        return $this->faculityId;
+    }
+    /**
+     * @param mixed $faculityId
+     */
+    public function setFaculityId($faculityId)
+    {
+        $this->faculityId = $faculityId;
+    }
     /**
      * @return mixed
      */
@@ -479,6 +494,18 @@ faculity.program=programs.id and universityfaculity.university='$unId' group by 
         }
 
 //$this->campusImageId;
+    }
+
+    /*delete faculitu on university*/
+    public function deleteFaculity(){
+        //$this->faculityId;
+        $query = $this->connection->query("UPDATE universityfaculity SET status='99' where id='$this->faculityId'");
+        if ($query){
+            return $query;
+        }
+        else{
+            return $query.mysqli_error($this->connection);
+        }
     }
 
 }
